@@ -114,3 +114,44 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+//step One
+const articleDiv = document.querySelector(".articles")
+function articleMaker(articleObj){ 
+ const div = document.createElement("div");
+ const h2 = document.createElement("h2");
+ const date = document.createElement("p");
+ const p1 = document.createElement("p");
+ const p2 = document.createElement("p");
+ const p3 = document.createElement("p");
+ const span = document.createElement("span");
+
+ div.appendChild(h2);
+ div.appendChild(date);
+ div.appendChild(p1);
+ div.appendChild(p2);
+ div.appendChild(p3);
+ div.appendChild(span);
+
+ div.classList.add("article");
+ date.classList.add("date");
+ span.classList.add("expandButton");
+
+ date.textContent = articleObj.date;
+ p1.textContent = firstParagraph;//getting error that firstParagraph is not defined... not sure why.
+ p2.textContent = secondParagraph;
+ p3.textContent = thirdParagraph;
+ span.textContent = "+";
+
+ span.addEventListener("click", function()
+ {div.article.toggle.add("article-open")
+ console.log(div.classList);
+});
+
+ console.log(div);
+ return div;
+}
+//console.log(articleMaker);
+data.forEach((obj)=>{
+  const newArticle = articleMaker(obj);
+  return articles.appendChild(newArticle);
+});
